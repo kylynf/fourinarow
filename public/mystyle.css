@@ -2,7 +2,7 @@
     color: blue;
 }
 
-#square {
+.square {
     float: left;
     height: 50px;
     width: 50px;
@@ -10,14 +10,29 @@
     border: 1px solid #000000;
 }
 
-#dot {
+.dot {
     height: 100%;
     width: 100%;
     border-radius: 100px;
     border: 1px solid #000000;
+    /* background-color: red; */
 }
 
-#column{
+.dot.player1 {
+    background-color: red;
+}
+
+.dot.player2 {
+    background-color: blue;
+}
+
+.dot.noplayer {
+    background-color: black;
+}
+
+
+
+.column{
     height: 100%;
     width: 50px;
     margin: 4px;

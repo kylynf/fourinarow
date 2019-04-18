@@ -5,27 +5,19 @@
   </head>
   <body>
     <div id="app">
-      <div>
-        <input type="text" id="message">
-        <button id="send">Send</button>
-      </div>
-      <div id="messages"></div>
-      <div id="gameboard"></div>
       <div id="grid">
-          <button id="column" v-on:click = "placePiece('red');">1</button>
-          <button id="column">2</button>
-          <button id="column">3</button>
-          <button id="column">4</button>
-          <button id="column">5</button>
-          <button id="column">6</button>
-          <button id="column">7</button>
-          <div id="square" v-for="cell in board">
-            <div id="dot">{{ cell }}</div>
+          <button class="column" v-on:click="placePiece(0)">&darr;</button>
+          <button class="column" v-on:click="placePiece(1)">&darr;</button>
+          <button class="column" v-on:click="placePiece(2)">&darr;</button>
+          <button class="column" v-on:click="placePiece(3)">&darr;</button>
+          <button class="column" v-on:click="placePiece(4)">&darr;</button>
+          <button class="column" v-on:click="placePiece(5)">&darr;</button>
+          <button class="column" v-on:click="placePiece(6)">&darr;</button>
+          <div class="square" v-for="cell in board">
+            <div class="dot" v-bind:class="classForPlayer(cell)"></div>
           </div>
       </div>
       <br>
-      <button id="setRed" v-on:click ="checkPlayer(1)">Red</button>
-      <button id="setBlue" v-on:click ="checkPlayer(2)">Blue</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>

@@ -1,65 +1,74 @@
-var inputField = document.querySelector("#message");
-var sendButton = document.querySelector("#send");
-var messagesDiv = document.querySelector("#messages");
 
-var addMessage = function (message) {
-  var messageDiv = document.createElement("div");
-  messageDiv.innerHTML = message;
-  messagesDiv.appendChild(messageDiv);
-};
 
-sendButton.onclick = function () {
-  var message = inputField.value;
 
-  var data = {
-    message: message
-  };
+  // var message = inputField.value;
+  // var data = {
+  //   action: player1,
+  //   message: message
+  // };
 
-  socket.send(JSON.stringify(data));
-};
+  // socket.send(JSON.stringify(data));
 
-///////////////////
-
-var redButton = document.querySelector("#setRed");
-var blueButton = document.querySelector("#setBlue");
-var gameboard = document.querySelector("#gameboard");
-var dots = document.getElementById('dot');
-
-//var addPiece
 
 //////////////////
-
-var socket = new WebSocket('ws://localhost:8080');
-
-socket.onmessage = function (event) {
-  var received = event.data;
-  var data = JSON.parse(received);
-  console.log("data received from server", data);
-  addMessage(data.message);
-};
-
-const red = "#ff0000";
-const blue = "#0000ff";
 
 const app = new Vue({
   el: '#app',
   data: {
+    socket: null,
     board: new Array(6*7).fill(0),
+    player: 0,
+    turn: 1
     // currentColor: RED
-
   },
   methods:{
-    checkPlayer: function(value){
-      //red player
-      if(value == 1){
-        this.currentColor = RED;
+    connectSocket: function () {
+      this.socket = new WebSocket('ws://localhost:8080');
+      this.socket.onmessage = event => {
+        var received = event.data;
+        var fromServer = JSON.parse(received);
+        console.log("data received from server", fromServer);
+        if (fromServer.action == "updateBoard") {
+          this.board = fromServer.board;
+        } else if (fromServer.action == "newgame"){
+          alert("The game is starting");
+          this.player = fromServer.player;
+        } else if (fromServer.action == "playerTurn"){
+          this.turn = fromServer.turn;
+        }
+      };
+    },
+    classForPlayer: function (player) {
+      if (player == 1) {
+        return "player1";
+      } else if (player == 2){
+        return "player2";
       } else {
-        this.currentColor = BLUE;
+        return "noplayer";
       }
     },
-    placePiece: function(){
-      dots.style.background = '#ff0000';
+    placePiece: function(col){
+      if(this.player == this.turn){
+        //starting at bottom of grid to fill pieces
+        for(let row = 5; row >= 0; row--){
+          let i = col + 7 * row;
+          if(this.board[i] == 0){
+            this.$set(this.board, i, this.player);
+            let toServer = {
+              action: "updateBoard",
+              board: this.board
+            };
+            this.socket.send(JSON.stringify(toServer));
+            return
+          }
+        }
+        alert("This was not a valid move");
+      } else {
+        alert("it is not your turn");
+      }
     }
-
+  },
+  created: function(){
+    this.connectSocket();
   }
 });
