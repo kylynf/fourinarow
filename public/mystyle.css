@@ -1,0 +1,53 @@
+#send{
+    color: blue;
+}
+
+#square {
+    float: left;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #000000;
+}
+
+#dot {
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    border: 1px solid #000000;
+}
+
+#column{
+    height: 100%;
+    width: 50px;
+    margin: 4px;
+}
+
+#grid{
+    width: 434px;
+    margin: 0 auto;
+}
+
+#setRed{
+    float:left;
+}
+
+#setBlue{
+    float:left;
+}
+
+#redDot{
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    border: 1px solid #000000;
+    background-color: red;
+}
+
+#blueDot{
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    border: 1px solid #000000;
+    background-color: blue;
+}
