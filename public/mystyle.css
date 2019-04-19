@@ -1,13 +1,19 @@
-#send{
-    color: blue;
+h1, h2{
+    text-align: center;
 }
 
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #ffcba4;
+}
 .square {
     float: left;
     height: 50px;
     width: 50px;
     padding: 5px;
     border: 1px solid #000000;
+    background-color: #ffff00;
 }
 
 .dot {
@@ -30,7 +36,18 @@
     background-color: black;
 }
 
+.red{
+    color:red;
+}
 
+.blue{
+    color:blue;
+}
+
+.instructions{
+    width: 50%;
+    margin: 0 auto;
+}
 
 .column{
     height: 100%;
@@ -43,26 +60,5 @@
     margin: 0 auto;
 }
 
-#setRed{
-    float:left;
-}
 
-#setBlue{
-    float:left;
-}
 
-#redDot{
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    border: 1px solid #000000;
-    background-color: red;
-}
-
-#blueDot{
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    border: 1px solid #000000;
-    background-color: blue;
-}

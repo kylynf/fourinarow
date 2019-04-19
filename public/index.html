@@ -5,6 +5,18 @@
   </head>
   <body>
     <div id="app">
+      <div class="instructions">
+        <h1>Welcome to Four-In-A-Row!</h1>
+        <h2>Rules:</h2>
+        <ol>
+          <li>This is a two person game, the game will start when the second person loads their screen</li>
+          <li><div class="red">The first person who loads their screen is player one, their color is red</div></li>
+          <li><div class="blue">The second person who loads their screen is player two, their color is blue</div></li>
+          <li>The object of the game is to get four in a row horizontally, vertically, or diagonally alternating turns with your opponent</li>
+          <li>The logic is not yet in place to determine a winner so pay attention to your opponents moves!</li>
+          <li>Good luck, be honest, and have fun!</li>
+        </ol>
+    </div>
       <div id="grid">
           <button class="column" v-on:click="placePiece(0)">&darr;</button>
           <button class="column" v-on:click="placePiece(1)">&darr;</button>
