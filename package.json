@@ -1,8 +1,26 @@
 {
-  "engines":{
-    "node":"10.15.0"
-  },
+  "name": "connectfour",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "engines": {
+    "node":"10.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsu-cit-csweb4200/s19-websocket-kylynf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsu-cit-csweb4200/s19-websocket-kylynf/issues"
+  },
+  "homepage": "https://github.com/dsu-cit-csweb4200/s19-websocket-kylynf#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "ws": "^6.2.1"
   }
 }

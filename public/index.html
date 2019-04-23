@@ -6,7 +6,8 @@
   <body>
     <div id="app">
       <div class="instructions">
-        <h1>Welcome to Four-In-A-Row!</h1>
+        <h1 class="title">Welcome to Four-In-A-Row!</h1>
+        <p>Created by: Kylyn Fernandez</p>
         <h2>Rules:</h2>
         <ol>
           <li>This is a two person game, the game will start when the second person loads their screen</li>
@@ -16,7 +17,7 @@
           <li>The logic is not yet in place to determine a winner so pay attention to your opponents moves!</li>
           <li>Good luck, be honest, and have fun!</li>
         </ol>
-    </div>
+      </div>
       <div id="grid">
           <button class="column" v-on:click="placePiece(0)">&darr;</button>
           <button class="column" v-on:click="placePiece(1)">&darr;</button>
@@ -28,8 +29,8 @@
           <div class="square" v-for="cell in board">
             <div class="dot" v-bind:class="classForPlayer(cell)"></div>
           </div>
+          <br>
       </div>
-      <br>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
