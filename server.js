@@ -4,10 +4,6 @@ const express = require('express');
 var app = express();
 app.set('port', (process.env.PORT || 8080));
 
-// var server = app.listen(......
-
-// const wss = new WebSocket.Server({ server: server });
-
 const wss = new WebSocket.Server({ port: 8080 });
 
 

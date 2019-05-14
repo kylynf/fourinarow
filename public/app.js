@@ -1,17 +1,3 @@
-
-
-
-  // var message = inputField.value;
-  // var data = {
-  //   action: player1,
-  //   message: message
-  // };
-
-  // socket.send(JSON.stringify(data));
-
-
-//////////////////
-
 const app = new Vue({
   el: '#app',
   data: {
@@ -19,11 +5,11 @@ const app = new Vue({
     board: new Array(6*7).fill(0),
     player: 0,
     turn: 1
-    // currentColor: RED
   },
   methods:{
     connectSocket: function () {
-      this.socket = new WebSocket('ws://localhost:8080');
+      // this.socket = new WebSocket('ws://localhost:8080');
+      this.socket = new WebSocket('ws://kylynsfourinarow.herokuapp.com/');
       this.socket.onmessage = event => {
         var received = event.data;
         var fromServer = JSON.parse(received);
