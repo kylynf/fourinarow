@@ -8,8 +8,8 @@ const app = new Vue({
   },
   methods:{
     connectSocket: function () {
-      // this.socket = new WebSocket('ws://localhost:8080');
-      this.socket = new WebSocket('ws://kylynsfourinarow.herokuapp.com/');
+      this.socket = new WebSocket('ws://localhost:8080');
+      // this.socket = new WebSocket('ws://kylynsfourinarow.herokuapp.com/');
       this.socket.onmessage = event => {
         var received = event.data;
         var fromServer = JSON.parse(received);
